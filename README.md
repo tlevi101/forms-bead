@@ -170,7 +170,6 @@ A mentett adatok egy lokális SQLite táblában jelennek meg: `rest-api.sqlite`.
 ## További információk
 
 Elvárás az igényes megjelenés. Ehhez használhatsz saját CSS-t is, de komponens függvénykönyvárakat is, mint pl. [Material UI](https://mui.com/) vagy [Bootstrap](https://react-bootstrap.github.io/).
-A pluszfeladathoz tartozó kördiagram elkészíthető például a következővel [React Google Charts](https://www.react-google-charts.com/)
 
 ## Feltöltendő
 
