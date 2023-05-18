@@ -1,4 +1,4 @@
-# Feladatsorok alkalmazás
+# Kérdőívek
 
 _Kliensoldali webprogramozás 2. beadandó_
 
@@ -33,8 +33,7 @@ A feladatban adott a szerveroldali REST API, leírását lentebb olvashatjátok,
 
 Minden oldal tetején megjelenik egy navigációs sáv, ahol az alkalmazás neve és az elérhető funkciók vannak menüpontokban megjelenítve:
 
-- Alkalmazás neve: főoldalra visz
-- Form wizard
+- Kérdőívek (ez az alkalmazás neve, rákattintva főoldalra visz)
 - Ha nincs bejelentkezve
   - Regisztráció
   - Bejelentkezés
@@ -85,26 +84,38 @@ A bevitt adatot ellenőrizni kell. A formátum ellenőrzésekor elég a követke
 
 A kérdések minden esetben egyszerű szöveges választ várnak. 
 
+A kérdőív mentésekor a REST API automatikusan a bejelentezettt felhasználóhoz rendeli a kérdőívet, generál neki egy egyedi azonosítót (`hash`), amit majd a hivatkozáshoz lehet használni.
+
+![Válaszok](./images/new.png)
+
 ### Kérdőíveim
 
 Csak bejelentkezve érhető el.
-A bejelentkezett felhasználóhoz tartozó kérdőívek jelennek itt meg, minden feladatsornál azok nevei, létrehozási dátumai és a hozzá tartozó funkciógombok. A nevek linkek, amik a  kérdőívhez tartozó linkre mutatnak (ezen keresztül van lehetőség annak kitöltésére). Minden kérdőívnél lehetőség van:
+A bejelentkezett felhasználóhoz tartozó kérdőívek jelennek itt meg, minden feladatsornál azok nevei, létrehozási dátumai és a hozzá tartozó funkciógombok. A nevek linkek, amik a  kérdőívhez tartozó linkre (`hash`) mutatnak (ezen keresztül van lehetőség annak kitöltésére). Minden kérdőívnél lehetőség van:
 
 - annak törlésére,
 - módosítására (az "Új kérdőív" felületen jelenik meg a jelenlegi kérdőív "kódja"),
 - hozzá tartozó link vágólapra másolására,
 - valamint a hozzá tartozó válaszok megtekintésére.
 
+![Válaszok](./images/list.png)
+
 ### Kérdőív
 
-Az előző részben tárgyalt hivatkozás ismeretében bárki elérheti.
-A kérdőív különböző lépésekként jeleníti meg az egyes lapokon található kérdéseket. A következő lapra csak abban az esetben léphetünk, ha a felhasználó már minden aktuális mezőt kitöltött.
-A legvégén a beküldés gomb hatására a válaszokat felküldjük.
+Az előző részben tárgyalt hivatkozás ismeretében bárki elérheti. Pl. `http://localhost:3000/survey/<hash>`.
+
+A kérdőív különböző lépésekként jeleníti meg az egyes lapokon található kérdéseket. A következő lapra csak abban az esetben léphetünk, ha a felhasználó már minden aktuális mezőt kitöltött. Navigálni az előre-hátra gombokkal, illetve a lapok neveire kattintva lehet. Lapra csak akkor lehet lépni, ha már ki van töltve, vagy éppen az az aktuális.
+
+A legvégén a beküldés gomb hatására a válaszokat felküldjük. Csak úgy küldhető be a kérdőív, ha minden adat ki van töltve.
+
+![Válaszok](./images/query.png)
 
 ### Válaszok
 
 Csak bejelentkezve érhető el.
 A "Kérdőíveim" oldalon kiválasztott kérdőív válaszai tekinthetőek itt meg listaszerűen. Megjelenik a kérdőív címe, a kérdések és a kérdések alatt a kitöltők által adott válaszok.
+
+![Válaszok](./images/answers.png)
 
 ### Profil
 
@@ -177,19 +188,21 @@ Az egész projektet tömörítsd be, kliensestül, szerverestül, és azt tölts
 - Bejelentkezés működik (1pt)
 - Új kérdőív, Kérdőíveim: csak bejelentkezve érhetőek el (1pt)
 - Új kérdőív: új kérdőív mentésének helyes működése (2pt)
-- Kérdőíveim: megjelennek a kérdőívek megnevezései táblázatos formában (2pt)
+- Kérdőíveim: megjelennek a kérdőívek az elérhető funkciókkal (2pt)
 - Kérdőíveim: módosítás helyes működése (2pt)
 - Kérdőíveim: törlés helyes működése (2pt)
-- Kérdőíveim: hivatkozás generálásának helyes működése (1pt)
+- Kérdőíveim: hivatkozás helyes működése (1pt)
 - Kérdőív: a kérdőív kérdései megjelennek (3pt)
-- Kérdőív: a kérdések lapozható formában jelennek meg a lapok megnevezéseivel (2pt)
+- Kérdőív: a kérdések lapozható formában jelennek meg a lapok megnevezéseivel, a lapok közötti navigáció megfelelő (2pt)
 - Kérdőív: csak kitöltött oldal esetén lehet továbblapozni (1pt)
 - Kérdőív: lapozón vizuálisan látszik, hogy mely lapnál tartunk (1pt)
 - Kérdőív: beküldés helyes működése (2pt)
 - Válaszok: a kiválasztott kérdőívre adott válaszok megjelennek (2pt)
-- Válaszok: a kapott válaszokról kördiagram készül (+5pt)
 - Profil: csak bejelentkezve érhető el, megfelelő tartalommal (2pt)
 - Profil: Kijelentkezés gomb működik (1pt)
 - Igényes megjelenés (2pt)
+- Pluszok: a kérdőíveim lista lapozható (pl. 5-ösével) (+2pt)
+- Pluszok: a válaszok lista lapozható (pl. 10-esével) (+2pt)
+- Pluszok: a kérdőív linkje egy gombra kattintva a vágólapra másolható (+1pt)
 - 1 hét késés (-3pt)
 - 2 hét késés (-6pt)
