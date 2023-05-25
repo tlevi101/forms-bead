@@ -3,6 +3,7 @@ import { resolve, virtual } from '@feathersjs/schema'
 import { Type, getValidator, querySyntax } from '@feathersjs/typebox'
 import { dataValidator, queryValidator } from '../../validators.js'
 import { surveySchema } from '../surveys/surveys.schema.js'
+import { BadRequest } from '@feathersjs/errors'
 
 // Main data model schema
 export const resultSchema = Type.Object(
@@ -53,4 +54,20 @@ export const resultQuerySchema = Type.Intersect(
   { additionalProperties: false }
 )
 export const resultQueryValidator = getValidator(resultQuerySchema, queryValidator)
-export const resultQueryResolver = resolve({})
+export const resultQueryResolver = resolve({
+  surveyId: async (value, result, context) => {
+    if (context.method === 'find' || context.method === 'get') {
+      if (value === undefined) {
+        throw new BadRequest('surveyId is missing in query')
+      }
+      // console.log(context.params.user.id)
+      // console.log(await context.app.service('surveys').get(value).userId)
+      if (context.params.user) {
+        if ((await context.app.service('surveys').get(value)).userId !== context.params.user.id) {
+          throw new BadRequest('survey does not belong to the authenticated user')
+        }
+      }
+    }
+    return value
+  }
+})

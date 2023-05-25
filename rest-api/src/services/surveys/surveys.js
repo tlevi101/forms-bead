@@ -13,6 +13,7 @@ import {
   surveyQueryResolver
 } from './surveys.schema.js'
 import { SurveyService, getOptions } from './surveys.class.js'
+import { checkQuery } from '../../hooks/check-query.js'
 
 export const surveyPath = 'surveys'
 export const surveyMethods = ['find', 'get', 'create', 'patch', 'remove']
@@ -40,8 +41,8 @@ export const survey = (app) => {
     },
     before: {
       all: [schemaHooks.validateQuery(surveyQueryValidator), schemaHooks.resolveQuery(surveyQueryResolver)],
-      find: [],
-      get: [],
+      find: [checkQuery],
+      get: [checkQuery],
       create: [schemaHooks.validateData(surveyDataValidator), schemaHooks.resolveData(surveyDataResolver)],
       patch: [schemaHooks.validateData(surveyPatchValidator), schemaHooks.resolveData(surveyPatchResolver)],
       remove: []

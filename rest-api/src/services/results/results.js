@@ -1,4 +1,5 @@
 // For more information about this file see https://dove.feathersjs.com/guides/cli/service.html
+import { authenticate } from '@feathersjs/authentication'
 
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import {
@@ -35,8 +36,8 @@ export const result = (app) => {
     },
     before: {
       all: [schemaHooks.validateQuery(resultQueryValidator), schemaHooks.resolveQuery(resultQueryResolver)],
-      find: [],
-      get: [],
+      find: [authenticate('jwt')],
+      get: [authenticate('jwt')],
       create: [schemaHooks.validateData(resultDataValidator), schemaHooks.resolveData(resultDataResolver)],
       patch: [schemaHooks.validateData(resultPatchValidator), schemaHooks.resolveData(resultPatchResolver)],
       remove: []
