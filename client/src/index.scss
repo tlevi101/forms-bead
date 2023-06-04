@@ -1,0 +1,173 @@
+$body-bg: #011627;
+$body-color: #d6deeb;
+$primary: #7fdbca;
+
+$input-bg: #d6deeb;
+$bg-color: 	#00294b;
+
+$input-color: $body-bg;
+$input-border-color: #1d3b53;
+$input-disabled-bg: #011627;
+$input-disabled-border-color: #011627;
+$input-disabled-color: #00447e;
+$form-check-input-checked-color: $body-bg;
+$form-check-input-checked-bg-color: $primary;
+$input-placeholder-color: #6c6c6c;
+// input
+$input-bg: #D6DEEB;
+$input-color:$body-bg;
+$input-border-color:#1D3B53;
+$input-disabled-bg: #011627;
+$input-disabled-border-color: #011627;
+$input-disabled-color: #00447e;
+$form-check-input-checked-color:          $body-bg;
+$form-check-input-checked-bg-color:       $primary;
+$input-placeholder-color: #6c6c6c;
+// $input-group-addon-bg:   #7FDBCA;
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px $input-bg inset !important;
+  -webkit-text-fill-color: $body-bg !important;
+}
+
+@import "bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+.container{
+  position: unset;
+}
+.row{
+  position: unset;
+}
+
+.round-button {
+  border-radius: 50%;
+}
+i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+tr{
+  background-color: #004985;
+  color: white;
+}
+tr td:first-child,th:first-child {
+  width: 100px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+tr td:last-child,th:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+tr>td,th{
+  padding: 10px;
+}
+
+thead > tr{
+  background-color: #7e57c2;
+}
+table{
+  border-radius: 20px;
+  width: 100%;
+}
+
+td, th{
+  text-align: center;
+}
+
+.clickable:hover{
+  cursor: pointer;
+}
+
+.bg-blue{
+  background-color: $bg-color;
+}
+.popup {
+  position: fixed;
+  max-width: 90%;
+  width: fit-content;
+  min-width: 600px;
+  max-height: 90%;
+  top: 50%;
+  left: 50%;
+  overflow-y:scroll;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+.bg-popUp{
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.27);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 100;
+}
+.multi-depth-input-container > *{
+  width: 95%;
+  margin-left: 5%;
+}
+.multi-depth-input-container > input[type="checkbox"]{
+  width: 20px;
+  height: 20px;
+  margin-left: 5%;
+}
+.form-check-label{
+  width: auto;
+  margin-left: 5%;
+}
+.multi-depth-input-container {
+  min-width: 100px;
+  margin-left: 5%;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+  padding: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #80A4C2;
+  border-radius: 10px;
+  margin-right: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #80A4C2;
+}
+
+.odd-numbered{
+  background-color: #003562;
+}
+
+.even-numbered{
+  background-color: #00294b;
+}
+
