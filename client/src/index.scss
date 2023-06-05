@@ -34,6 +34,12 @@ input:-webkit-autofill:active{
 
 @import "bootstrap";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+.invalid-feedback{
+  display: block;
+}
+.valid-feedback{
+  display: block;
+}
 
 .container{
   position: unset;
@@ -102,7 +108,6 @@ td, th{
   position: fixed;
   max-width: 90%;
   width: fit-content;
-  min-width: 600px;
   max-height: 90%;
   top: 50%;
   left: 50%;
@@ -124,21 +129,14 @@ td, th{
   overflow-x: hidden;
   z-index: 100;
 }
-.multi-depth-input-container > *{
-  width: 95%;
-  margin-left: 5%;
-}
-.multi-depth-input-container > input[type="checkbox"]{
-  width: 20px;
-  height: 20px;
-  margin-left: 5%;
+.container-center {
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  min-width: 100%;
 }
 .form-check-label{
   width: auto;
-  margin-left: 5%;
-}
-.multi-depth-input-container {
-  min-width: 100px;
   margin-left: 5%;
 }
 ::-webkit-scrollbar {
@@ -170,4 +168,10 @@ td, th{
 .even-numbered{
   background-color: #00294b;
 }
+.bg-dark{
+  background-color: #00294b !important;
+}
 
+.text-right{
+  text-align: right;
+}
