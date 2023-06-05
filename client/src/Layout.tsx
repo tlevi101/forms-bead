@@ -25,14 +25,20 @@ const Layout = () => {
   const navigate = useNavigate();
 
   const NonAuthNavItems: NavItem[] = [
+    { label: "Surveys", path: "/" },
     { label: "Login", path: "/login" },
     { label: "Register", path: "/register" },
   ];
-  const AuthNavItems: NavItem[] = [{ label: "Home", path: "/" }];
+  const AuthNavItems: NavItem[] = [
+    { label: "Surveys", path: "/" },
+    { label: "My Surveys", path: `/surveys?userId=${user?.id}`},
+    { label: "Answers", path: "/answers" },
+    { label: "Profile", path: "/profile" },
+  ];
 
   const handleLogout = () => {
     dispactch(logout());
-    navigate("/login");
+    navigate("/login",);
   };
 
   return (

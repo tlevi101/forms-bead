@@ -28,7 +28,6 @@ export default class MyForm {
   }
 
   public validate(name: string, value: InputTypes): MyForm {
-    console.log("validate", name, value);
     const input = this.inputs[name];
     input.state.value = value;
     const validators = input.validators;

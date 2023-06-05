@@ -55,3 +55,9 @@ export interface NavItem {
   label: string;
   path: string;
 }
+
+export interface PaginationProps {
+  collectionSize: number;
+  pageSize: number;
+  pageTurn: (page:number) => void;
+}
