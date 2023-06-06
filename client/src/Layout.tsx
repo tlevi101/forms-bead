@@ -6,13 +6,15 @@ import {
   logout,
 } from "./slices/UserSlice";
 import { NavItem } from "./Types";
+import {useEffect} from "react";
 
 const NavLink = (props: { label: string; path: string }) => {
   const location = useLocation();
+
   return (
     <Link
       to={props.path}
-      className={`nav-link ${location.pathname === props.path ? "active" : ""}`}
+      className={`nav-link ${location.pathname === props.path.split('?')[0] ? "active" : ""}`}
     >
       {props.label}
     </Link>
@@ -23,6 +25,12 @@ const Layout = () => {
   const isLoggedIn = useSelector(getAuthState);
   const dispactch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!isLoggedIn){
+      navigate("/login");
+    }
+  }, [isLoggedIn]);
 
   const NonAuthNavItems: NavItem[] = [
     { label: "Surveys", path: "/" },

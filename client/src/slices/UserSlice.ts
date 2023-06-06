@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { LoginResponse, User } from "../Types";
-import { useSelector } from "react-redux";
 interface State {
   accessToken: string | null | undefined;
   user: User | null | undefined;
@@ -33,4 +32,3 @@ export const getAuthState = (state: State) =>
 export const getAccessToken = (state: State) => state.accessToken;
 export const getUser = (state: State) => state.user;
 
-export const getState = (state: State) => state;

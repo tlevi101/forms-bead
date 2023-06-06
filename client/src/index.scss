@@ -5,6 +5,33 @@ $primary: #7fdbca;
 $input-bg: #d6deeb;
 $bg-color: 	#00294b;
 
+$navbar-dark-hover-color: rgba(127, 219, 202, 0.51);
+$navbar-dark-color: $body-color;
+$navbar-dark-active-color:          $primary;
+
+
+$pagination-color:                  $body-color;
+$pagination-bg:                     #003764;
+$pagination-border-color:           #000000;
+
+$pagination-focus-color:            $body-color;
+$pagination-focus-bg:               #80A4C2;
+$pagination-focus-box-shadow:       0;
+$pagination-focus-outline:          0;
+
+$pagination-hover-color:            $body-color;
+$pagination-hover-bg:               #80A4C2;
+$pagination-hover-border-color:     black;
+
+$pagination-active-color:           $body-color;
+$pagination-active-bg:              #7e57c2;
+$pagination-active-border-color:    black;
+
+$pagination-disabled-color:			$body-color;
+$pagination-disabled-bg:			#7e57c228;
+$pagination-disabled-border-color:  #000000;
+
+
 $input-color: $body-bg;
 $input-border-color: #1d3b53;
 $input-disabled-bg: #011627;

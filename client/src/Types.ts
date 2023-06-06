@@ -35,12 +35,9 @@ export interface RegisterResponse {
 
 export enum ValidatorType{
   EMAIL = "email",
-  MIN = "min",
-  MAX = "max",
   REQUIRED = "required",
 }
-type possibleBaseTypes = string | number | undefined | null
-export type InputTypes =  Array<possibleBaseTypes> | possibleBaseTypes;
+export type InputTypes =  string | undefined | null
 export type Inputs = {[name:string]: {state: InputState, validators: {type:ValidatorType, expected?:number, message:string}[]}};
 export type InputsParam = {[name:string]: {validators: {type:ValidatorType, expected?:number, message:string}[]}};
 
@@ -60,4 +57,28 @@ export interface PaginationProps {
   collectionSize: number;
   pageSize: number;
   pageTurn: (page:number) => void;
+}
+
+export interface ISurvey {
+  readonly id: number;
+  name: string;
+  content: string;
+  readonly userId: number;
+  readonly createdAt: string;
+  readonly hash: string;
+  readonly user: User;
+}
+
+export interface SurveyPage{
+  pageName: string;
+  questions: string[];
+}
+
+export interface SurveyResponse {
+  id:number;
+  content: string;
+  name:string;
+  hash:string;
+  createdAt:number;
+  user:User;
 }

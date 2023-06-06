@@ -19,6 +19,8 @@ export default class PaginationController {
   }
 
   public get pageCount(): number {
+    console.log("collectionSize", this.collectionSize)
+    console.log("pageSize", this.pageSize)
     return Math.ceil(this.collectionSize / this.pageSize);
   }
 

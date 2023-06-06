@@ -1,32 +1,37 @@
 import { PaginationProps } from "../Types";
 import PaginationController from "./PaginationController";
 import React, {useEffect, useState} from "react";
-import { types } from "sass";
-import Number = types.Number;
 
 const Pagination = ({
   collectionSize,
   pageSize,
   pageTurn,
 }: PaginationProps) => {
-  const [pagination, setPagination] = useState(
-    new PaginationController(collectionSize, pageSize)
-  );
+  const [pagination, setPagination] = useState<PaginationController>(new PaginationController(collectionSize, pageSize));
 
   useEffect(() => {
     pageTurn(pagination.page);
   }, [pagination]);
 
   const turnPageTo = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if(!pagination){
+      return;
+    }
     const pageNumber = parseInt(e.currentTarget.id.split("-")[1]);
     setPagination(pagination.turnPageTo(pageNumber).clone());
   };
 
   const turnPageNext = () => {
+    if(!pagination){
+      return;
+    }
     setPagination(pagination.incrementCurrentPageBy(1).clone());
   };
 
   const turnPagePrevious = () => {
+    if(!pagination){
+      return;
+    }
     setPagination(pagination.incrementCurrentPageBy(-1).clone());
   };
   return (
@@ -49,7 +54,7 @@ const Pagination = ({
         >
           <a className="page-link">...</a>
         </li>
-        {[].constructor(pagination.SliderSize).map((_: any, index: number) => {
+        {Array.from(Array(pagination.SliderSize).keys()).map((_: any, index: number) => {
           return (
             <li
               key={`pagination-page-${pagination.first + index}`}
@@ -69,7 +74,7 @@ const Pagination = ({
         })}
         <li
           className={`page-item disabled ${
-            pagination.pageCount > pagination.first + pagination.SliderSize
+            pagination.pageCount <= pagination.first + pagination.SliderSize ? "d-none" : ""
           }`}
         >
           <a className="page-link">...</a>
@@ -84,3 +89,5 @@ const Pagination = ({
     </nav>
   );
 };
+
+export default Pagination;

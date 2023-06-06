@@ -11,7 +11,6 @@ const sendLogin = async (body:LoginBody) : Promise<LoginResponse | never> => {
     throw new Error(json.message);
   }
   const json = await response.json() as LoginResponse
-  // login({response: json});
   return json;
 }
 
